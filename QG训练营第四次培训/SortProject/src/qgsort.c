@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<time.h>
 #include<stdbool.h> 
-#include"C:/Users/13415/Desktop/QG/µÚËÄ´ÎÅàÑµ/SortProject/inc/qgsort.h"
+#include"C:/Users/13415/Desktop/QG/ç¬¬å››æ¬¡åŸ¹è®­/SortProject/inc/qgsort.h"
 
 
 
@@ -15,7 +15,7 @@ void init(stack *s){
 }
 void push(stack *s,int begin,int end){
 	
-	if(begin<end){		//µ±Çø¼ä³¤¶È´óÓÚ1Ê±²Å½øĞĞÈë¶Ó²Ù×÷ 
+	if(begin<end){		//å½“åŒºé—´é•¿åº¦å¤§äº1æ—¶æ‰è¿›è¡Œå…¥é˜Ÿæ“ä½œ 
 	
 		stacknode *node;
 		node=(stacknode*)malloc(sizeof(stacknode));
@@ -42,7 +42,7 @@ void pop(stack *s,int *begin,int *end){
 		s->count--;
 	}
 	else{
-		printf("¿ÕÕ»ÎŞ·¨µ¯³öÔªËØ!\n");
+		printf("ç©ºæ ˆæ— æ³•å¼¹å‡ºå…ƒç´ !\n");
 	}
 	
 	
@@ -71,8 +71,8 @@ void destroy(stack *s){
 
 /**
  *  @name        : void insertSort(int *a,int n);
- *  @description : ²åÈëÅÅĞò
- *  @param       : Êı×éÖ¸Õë a, Êı×é³¤¶È n
+ *  @description : æ’å…¥æ’åº
+ *  @param       : æ•°ç»„æŒ‡é’ˆ a, æ•°ç»„é•¿åº¦ n
  */
 void insertSort(int *a,int n){
 	
@@ -80,7 +80,7 @@ void insertSort(int *a,int n){
 		
 		int q =i;
 		int p =i-1;
-		int s =a[i];	//´¢´æ³é³öµÄÔªËØ 
+		int s =a[i];	//å‚¨å­˜æŠ½å‡ºçš„å…ƒç´  
 		while(s<a[p]){
 			
 			a[q--] =a[p--];
@@ -96,14 +96,14 @@ void insertSort(int *a,int n){
 
 /**
  *  @name        : void MergeArray(int *a,int begin,int mid,int end,int *temp);
- *  @description : ¹é²¢ÅÅĞò£¨ºÏ²¢Êı×é£©
- *  @param       : Êı×éÖ¸Õëa£¬Êı×éÆğµãbegin£¬Êı×éÖĞµãmid£¬Êı×éÖÕµãend£¬³ĞÔØÊı×éÖ¸Õëtemp
+ *  @description : å½’å¹¶æ’åºï¼ˆåˆå¹¶æ•°ç»„ï¼‰
+ *  @param       : æ•°ç»„æŒ‡é’ˆaï¼Œæ•°ç»„èµ·ç‚¹beginï¼Œæ•°ç»„ä¸­ç‚¹midï¼Œæ•°ç»„ç»ˆç‚¹endï¼Œæ‰¿è½½æ•°ç»„æŒ‡é’ˆtemp
  */
 void MergeArray(int *a,int begin,int mid,int end,int *temp){
 	
-	int left =begin;	//×ó×ÓÊı×éÖ¸Õë 
-	int right =mid+1; 	//ÓÒ×ÓÊı×éÖ¸Õë 
-	int t =0;			//tempÊı×éÖ¸Õë 
+	int left =begin;	//å·¦å­æ•°ç»„æŒ‡é’ˆ 
+	int right =mid+1; 	//å³å­æ•°ç»„æŒ‡é’ˆ 
+	int t =0;			//tempæ•°ç»„æŒ‡é’ˆ 
 	while(left<=mid && right<=end){
 	
 		if(a[left]<a[right]){
@@ -113,14 +113,14 @@ void MergeArray(int *a,int begin,int mid,int end,int *temp){
 			temp[t++]= a[right++];
 		}
 	}
-	while(left<=mid){			//½«×ÓÊı×éÊ£ÓàÔªËØÊä³ö 
+	while(left<=mid){			//å°†å­æ•°ç»„å‰©ä½™å…ƒç´ è¾“å‡º 
 		temp[t++]=a[left++];
 	}
 	while(right<=end){
 		temp[t++]=a[right++];
 	}
-	int a_p=begin;	//Ô­Êı×éaÖ¸Õë 
-	t=0;			//tempÊı×éÖ¸ÕëÖØĞÂ³õÊ¼»¯ 
+	int a_p=begin;	//åŸæ•°ç»„aæŒ‡é’ˆ 
+	t=0;			//tempæ•°ç»„æŒ‡é’ˆé‡æ–°åˆå§‹åŒ– 
 	while(a_p<=end){
 		a[a_p++]=temp[t++];
 	}
@@ -131,17 +131,17 @@ void MergeArray(int *a,int begin,int mid,int end,int *temp){
 
 /**
  *  @name        : void MergeSort(int *a,int begin,int end,int *temp);
- *  @description : ¹é²¢ÅÅĞò
- *  @param       : Êı×éÖ¸Õëa£¬Êı×éÆğµãbegin£¬Êı×éÖÕµãend£¬³ĞÔØÊı×éÖ¸Õëtemp
+ *  @description : å½’å¹¶æ’åº
+ *  @param       : æ•°ç»„æŒ‡é’ˆaï¼Œæ•°ç»„èµ·ç‚¹beginï¼Œæ•°ç»„ç»ˆç‚¹endï¼Œæ‰¿è½½æ•°ç»„æŒ‡é’ˆtemp
  */
 void MergeSort(int *a,int begin,int end,int *temp){
 	
 	if(begin<end){
 		
 		int mid = (begin+end)/2;
-		MergeSort(a,begin,mid,temp);	//×ó×ÓÊı×éµİ¹é 
-		MergeSort(a,mid+1,end,temp);	//ÓÒ×ÓÊı×éµİ¹é 
-		MergeArray(a,begin,mid,end,temp);	//ºÏ²¢
+		MergeSort(a,begin,mid,temp);	//å·¦å­æ•°ç»„é€’å½’ 
+		MergeSort(a,mid+1,end,temp);	//å³å­æ•°ç»„é€’å½’ 
+		MergeArray(a,begin,mid,end,temp);	//åˆå¹¶
 		 
 	}
 	
@@ -151,17 +151,17 @@ void MergeSort(int *a,int begin,int end,int *temp){
 
 /**
  *  @name        : void QuickSort(int *a, int begin, int end);
- *  @description : ¿ìËÙÅÅĞò£¨µİ¹é°æ£©
- *  @param       : Êı×éÖ¸Õëa£¬Êı×éÆğµãbegin£¬Êı×éÖÕµãend
+ *  @description : å¿«é€Ÿæ’åºï¼ˆé€’å½’ç‰ˆï¼‰
+ *  @param       : æ•°ç»„æŒ‡é’ˆaï¼Œæ•°ç»„èµ·ç‚¹beginï¼Œæ•°ç»„ç»ˆç‚¹end
  */
 void QuickSort_Recursion(int *a, int begin, int end){
 	
-	if(end-begin<=20){		//µİ¹é¿ìÅÅÓÅ»¯ 
+	if(end-begin<=20){		//é€’å½’å¿«æ’ä¼˜åŒ– 
 		insertSort(a,end-begin+1);
 	}
 	else{
 			if(begin<end){
-				int split=Partition(a,begin,end);	//È·¶¨ÊàÖáÏÂ±ê×÷Îª·Ö¸îÏß 
+				int split=Partition(a,begin,end);	//ç¡®å®šæ¢è½´ä¸‹æ ‡ä½œä¸ºåˆ†å‰²çº¿ 
 				QuickSort_Recursion(a,begin,split-1);
 				QuickSort_Recursion(a,split+1,end);
 		
@@ -176,8 +176,8 @@ void QuickSort_Recursion(int *a, int begin, int end){
 
 /**
  *  @name        : void QuickSort(int *a,int size)
- *  @description : ¿ìËÙÅÅĞò£¨·Çµİ¹é°æ£©
- *  @param       : Êı×éÖ¸Õëa£¬Êı×é³¤¶Èsize
+ *  @description : å¿«é€Ÿæ’åºï¼ˆéé€’å½’ç‰ˆï¼‰
+ *  @param       : æ•°ç»„æŒ‡é’ˆaï¼Œæ•°ç»„é•¿åº¦size
  */
 void QuickSort(int *a,int size){
 	
@@ -188,7 +188,7 @@ void QuickSort(int *a,int size){
 	bool empty(stack *s);
 	void destroy(stack *s);
 	
-	if(size<=20){				//¿ìÅÅÓÅ»¯ 
+	if(size<=20){				//å¿«æ’ä¼˜åŒ– 
 		insertSort(a,size);
 	}
 	
@@ -198,8 +198,8 @@ void QuickSort(int *a,int size){
 		begin=0,end=size-1;
 		
 		stack s;
-		init(&s);	//´´½¨Õ» 
-		int split=Partition(a,begin,end);		//È·¶¨ÊàÖáÏÂ±ê×÷Îª·Ö¸îÏß
+		init(&s);	//åˆ›å»ºæ ˆ 
+		int split=Partition(a,begin,end);		//ç¡®å®šæ¢è½´ä¸‹æ ‡ä½œä¸ºåˆ†å‰²çº¿
 		push(&s,begin,split-1);
 		push(&s,split+1,end);
 		while(!empty(&s)){
@@ -221,15 +221,15 @@ void QuickSort(int *a,int size){
 
 /**
  *  @name        : void QuickSort(int *a, int begin, int end)
- *  @description : ¿ìËÙÅÅĞò£¨ÊàÖá´æ·Å£©
- *  @param       : Êı×éÖ¸Õëa£¬Êı×éÆğµãbegin£¬Êı×éÖÕµãend
+ *  @description : å¿«é€Ÿæ’åºï¼ˆæ¢è½´å­˜æ”¾ï¼‰
+ *  @param       : æ•°ç»„æŒ‡é’ˆaï¼Œæ•°ç»„èµ·ç‚¹beginï¼Œæ•°ç»„ç»ˆç‚¹end
  */
 int Partition(int *a, int begin, int end){
 	
-	int low=begin;	    //Çø¼ä×î×ó¶Ë 
-	int high=end;		//Çø¼ä×îÓÒ¶Ë
-	int temp =a[begin];		//ÒÔµÚÒ»¸öÎªÊàÅ¦ 
-	while(low!=high){		//ÍÚ¿Ó·¨ 
+	int low=begin;	    //åŒºé—´æœ€å·¦ç«¯ 
+	int high=end;		//åŒºé—´æœ€å³ç«¯
+	int temp =a[begin];		//ä»¥ç¬¬ä¸€ä¸ªä¸ºæ¢çº½ 
+	while(low!=high){		//æŒ–å‘æ³• 
 		
 		while(low!=high){
 			
@@ -252,33 +252,33 @@ int Partition(int *a, int begin, int end){
 	}
 	a[low]=temp;
 	
-	return low;			//·µ»Ø¸ÃÊàÅ¦ÔÚÊı×é×îÖÕµÄÏÂ±ê 
+	return low;			//è¿”å›è¯¥æ¢çº½åœ¨æ•°ç»„æœ€ç»ˆçš„ä¸‹æ ‡ 
 }
 
 
 /**
  *  @name        : void CountSort(int *a, int size , int max)
- *  @description : ¼ÆÊıÅÅĞò
- *  @param       : Êı×éÖ¸Õëa£¬Êı×é³¤¶Èsize£¬Êı×é×î´óÖµmax
+ *  @description : è®¡æ•°æ’åº
+ *  @param       : æ•°ç»„æŒ‡é’ˆaï¼Œæ•°ç»„é•¿åº¦sizeï¼Œæ•°ç»„æœ€å¤§å€¼max
  */
 void CountSort(int *a, int size , int max){
 	
-	int *count;		//Í³¼ÆÊı×é 
+	int *count;		//ç»Ÿè®¡æ•°ç»„ 
 	count=(int*)malloc((max+1)*sizeof(int));
 	for(int i=0 ; i<max+1 ; i++){
 		count[i]=0;
 	} 
-	int temp[size];				//ÁÙÊ±Êı×é 
-	for(int i=0 ; i<size ; i++){	//ÊÕ¼¯ 
+	int temp[size];				//ä¸´æ—¶æ•°ç»„ 
+	for(int i=0 ; i<size ; i++){	//æ”¶é›† 
 		count[a[i]]++;
 		
 	}
 	
-	for(int i=1 ; i<max+1 ; i++){	//Í³¼Æ 
+	for(int i=1 ; i<max+1 ; i++){	//ç»Ÿè®¡ 
 		count[i]+=count[i-1];
 	}
 	
-	for(int i=size-1 ; i>=0 ; i--){	//·ÖÅä 
+	for(int i=size-1 ; i>=0 ; i--){	//åˆ†é… 
 		temp[--count[a[i]]]=a[i];
 	}
 	for(int i=0 ; i<size ; i++){
@@ -290,14 +290,14 @@ void CountSort(int *a, int size , int max){
 
 /**
  *  @name        : void RadixCountSort(int *a,int size)
- *  @description : »ùÊı¼ÆÊıÅÅĞò
- *  @param       : Êı×éÖ¸Õëa£¬Êı×é³¤¶Èsize
+ *  @description : åŸºæ•°è®¡æ•°æ’åº
+ *  @param       : æ•°ç»„æŒ‡é’ˆaï¼Œæ•°ç»„é•¿åº¦size
  */
 void RadixCountSort(int *a,int size){
 	
  
-	int max=0,max_digit=0;	//Ô­Êı×é×î´óÊı¼°ÆäÎ»Êı 
-	int BASE=10,exp=1;      //»ùÊıÎª10 ,expÓÃÓÚ¼ÆËã10µÄn´Î·½ 
+	int max=0,max_digit=0;	//åŸæ•°ç»„æœ€å¤§æ•°åŠå…¶ä½æ•° 
+	int BASE=10,exp=1;      //åŸºæ•°ä¸º10 ,expç”¨äºè®¡ç®—10çš„næ¬¡æ–¹ 
 	for(int i=0 ; i<size ; i++){
 		if(max<a[i]){
 			max=a[i];
@@ -310,8 +310,8 @@ void RadixCountSort(int *a,int size){
 	for(int i=0 ; i<max_digit ; i++){
 		
 
-		int bucket[10]={0};  //»ùÊıÍ°
-		int temp[size]; //ÁÙÊ±Êı×é
+		int bucket[10]={0};  //åŸºæ•°æ¡¶
+		int temp[size]; //ä¸´æ—¶æ•°ç»„
 
 		for(int m=0 ; m<size ; m++){
 			bucket[(a[m]/exp)%BASE]++;
@@ -339,8 +339,8 @@ void RadixCountSort(int *a,int size){
 
 /**
  *  @name        : void ColorSort(int *a,int size)
- *  @description : ÑÕÉ«ÅÅĞò
- *  @param       : Êı×éÖ¸Õëa£¨Ö»º¬0£¬1£¬2ÔªËØ£©£¬Êı×é³¤¶Èsize
+ *  @description : é¢œè‰²æ’åº
+ *  @param       : æ•°ç»„æŒ‡é’ˆaï¼ˆåªå«0ï¼Œ1ï¼Œ2å…ƒç´ ï¼‰ï¼Œæ•°ç»„é•¿åº¦size
  */
 void ColorSort(int *a,int size){
 	
@@ -401,16 +401,16 @@ void ColorSort(int *a,int size){
 
 
 /**
- *  @name        : ×ÔÄâ
- *  @description : ÔÚÒ»¸öÎŞĞòĞòÁĞÖĞÕÒµ½µÚK´ó/Ğ¡µÄÊı
- *  @param       : Êı×éÖ¸Õëa£¬Êı×é³¤¶Èsize
+ *  @name        : è‡ªæ‹Ÿ
+ *  @description : åœ¨ä¸€ä¸ªæ— åºåºåˆ—ä¸­æ‰¾åˆ°ç¬¬Kå¤§/å°çš„æ•°
+ *  @param       : æ•°ç»„æŒ‡é’ˆaï¼Œæ•°ç»„é•¿åº¦size
  */
  
 void Find_K(int *a,int size,int k){
 	int max=0;
-	int p=0;	//¼ÇÂ¼Ë³Ğò£¨°´´ÓĞ¡µ½´óÔÚ¸ÃÊı×éÖĞÊÇµÚ¼¸Î»£© 
-	int k_min=0,k_max=0;  //µÚK´ó£¬µÚKĞ¡ 
-	for(int i=0 ; i<size ; i++){	//ÕÒÊı×é×î´óÖµ 
+	int p=0;	//è®°å½•é¡ºåºï¼ˆæŒ‰ä»å°åˆ°å¤§åœ¨è¯¥æ•°ç»„ä¸­æ˜¯ç¬¬å‡ ä½ï¼‰ 
+	int k_min=0,k_max=0;  //ç¬¬Kå¤§ï¼Œç¬¬Kå° 
+	for(int i=0 ; i<size ; i++){	//æ‰¾æ•°ç»„æœ€å¤§å€¼ 
 		
 		if(max<a[i]){
 			max=a[i];
@@ -420,7 +420,7 @@ void Find_K(int *a,int size,int k){
 	int *store;
 	store=(int*)malloc((max+1)*sizeof(int));
 	for(int i=0 ; i<max+1 ; i++){
-		store[i]=-1;		//ÒÔ-1×÷Îª¿ÕÅĞ¶Ï 
+		store[i]=-1;		//ä»¥-1ä½œä¸ºç©ºåˆ¤æ–­ 
 	}
 	for(int i=0 ; i<max+1 ; i++){
 		store[a[i]]=a[i];
@@ -434,7 +434,7 @@ void Find_K(int *a,int size,int k){
 			}	
 		} 
 	}
-	int true_size=p;	//ÌŞ³ıÖØ¸´ÔªËØºóµÄ´óĞ¡ 
+	int true_size=p;	//å‰”é™¤é‡å¤å…ƒç´ åçš„å¤§å° 
 	p=0;
 	for(int i=0 ; i<=max ; i++){
 		if(store[i]!=-1){
@@ -448,22 +448,22 @@ void Find_K(int *a,int size,int k){
 	
 	
 	
-	//printf("µÚ %d Ğ¡µÄÊıÎª %d £¬µÚ %d ´óµÄÊıÎª %d\n",k,k_min,k,k_max);
+	//printf("ç¬¬ %d å°çš„æ•°ä¸º %d ï¼Œç¬¬ %d å¤§çš„æ•°ä¸º %d\n",k,k_min,k,k_max);
 	
 	
 }
 
-//²âÊÔÈı¸öµµ´ÎÅÅĞòÓÃÊ±º¯Êı
+//æµ‹è¯•ä¸‰ä¸ªæ¡£æ¬¡æ’åºç”¨æ—¶å‡½æ•°
 void test(int level){
 	
-	//¾ùÎª0-10Ëæ»úÊı 
+	//å‡ä¸º0-10éšæœºæ•° 
 	int *L,*temp,*copy;
 	L=(int *)malloc(level*sizeof(int));
 	temp=(int *)malloc(level*sizeof(int));
 	copy=(int *)malloc(level*sizeof(int));
 	int size,begin,end,max;
 	size=level,begin=0,end=level-1,max=10;
-	L[0]=10;	//±£Ö¤×î´óÖµÎª10 
+	L[0]=10;	//ä¿è¯æœ€å¤§å€¼ä¸º10 
 	for(int i=0 ; i<level ; i++){
 		if(i!=0){
 			L[i]=rand()%11;
@@ -471,55 +471,55 @@ void test(int level){
 		
 	}
 
-	for(int i=0 ; i<level ; i++){				//½«LÊı×é¸´ÖÆµ½copyÊı×éÖĞ 
+	for(int i=0 ; i<level ; i++){				//å°†Læ•°ç»„å¤åˆ¶åˆ°copyæ•°ç»„ä¸­ 
 		copy[i]=L[i];		
 	}
 		
 	clock_t start =clock();
 	insertSort(copy,size);
 	clock_t diff = clock() - start;
-	printf("²åÈëÅÅĞòÓÃÊ±%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
-	for(int i=0 ; i<level ; i++){				//Ã¿ÖÖÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é 
+	printf("æ’å…¥æ’åºç”¨æ—¶%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
+	for(int i=0 ; i<level ; i++){				//æ¯ç§æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ 
 		copy[i]=L[i];		
 	}
 	
 	start =clock();
 	MergeSort(copy,begin,end,temp);
 	diff = clock() - start;
-	printf("¹é²¢ÅÅĞòÓÃÊ±%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
-	for(int i=0 ; i<level ; i++){				//Ã¿ÖÖÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é 
+	printf("å½’å¹¶æ’åºç”¨æ—¶%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
+	for(int i=0 ; i<level ; i++){				//æ¯ç§æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ 
 		copy[i]=L[i];		
 	}	
 	
 	start =clock();
 	QuickSort_Recursion(copy,begin,end);
 	diff = clock() - start;
-	printf("¿ìËÙÅÅĞò£¨µİ¹é°æ£©ÓÃÊ±%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
-	for(int i=0 ; i<level ; i++){				//Ã¿ÖÖÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é 
+	printf("å¿«é€Ÿæ’åºï¼ˆé€’å½’ç‰ˆï¼‰ç”¨æ—¶%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
+	for(int i=0 ; i<level ; i++){				//æ¯ç§æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ 
 		copy[i]=L[i];		
 	}
 	
 	start =clock();
 	QuickSort(copy,size);
 	diff = clock() - start;
-	printf("¿ìËÙÅÅĞò£¨·Çµİ¹é°æ£©ÓÃÊ±%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
-	for(int i=0 ; i<level ; i++){				//Ã¿ÖÖÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é 
+	printf("å¿«é€Ÿæ’åºï¼ˆéé€’å½’ç‰ˆï¼‰ç”¨æ—¶%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
+	for(int i=0 ; i<level ; i++){				//æ¯ç§æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ 
 		copy[i]=L[i];		
 	}	
 	
 	start =clock();
 	CountSort(copy,size,max);
 	diff = clock() - start;
-	printf("¼ÆÊıÅÅĞòÓÃÊ±%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
-	for(int i=0 ; i<level ; i++){				//Ã¿ÖÖÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é 
+	printf("è®¡æ•°æ’åºç”¨æ—¶%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
+	for(int i=0 ; i<level ; i++){				//æ¯ç§æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ 
 		copy[i]=L[i];		
 	}	
 
 	start =clock();
 	RadixCountSort(copy,size);
 	diff = clock() - start;
-	printf("»ùÊıÅÅĞòÓÃÊ±%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
-	for(int i=0 ; i<level ; i++){				//Ã¿ÖÖÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é 
+	printf("åŸºæ•°æ’åºç”¨æ—¶%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
+	for(int i=0 ; i<level ; i++){				//æ¯ç§æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ 
 		copy[i]=L[i];		
 	}
 	
@@ -528,14 +528,14 @@ void test(int level){
 
 } 
 
-//²âÊÔ´óÁ¿Ğ¡Êı×éÔÚ¶à´ÎÅÅĞòÏÂµÄÓÃÊ±
+//æµ‹è¯•å¤§é‡å°æ•°ç»„åœ¨å¤šæ¬¡æ’åºä¸‹çš„ç”¨æ—¶
 void test2(void){
 	
 	clock_t start,diff;
 	int size,begin,end,max,sort_time;
-	size=100,begin=0,end=100,max=10;	//Êı×é³¤¶È 
-	double sumtime=0;					//¼ÆÊ±Æ÷ 
-	sort_time=100000;			//Ã¿ÖÖÅÅĞò·¨µÄÅÅĞò´ÎÊı 
+	size=100,begin=0,end=100,max=10;	//æ•°ç»„é•¿åº¦ 
+	double sumtime=0;					//è®¡æ—¶å™¨ 
+	sort_time=100000;			//æ¯ç§æ’åºæ³•çš„æ’åºæ¬¡æ•° 
 	int *a,*temp,*copy;
 	a=(int *)malloc(size*sizeof(int)); 
 	temp=(int *)malloc(size*sizeof(int));
@@ -561,12 +561,12 @@ void test2(void){
 		insertSort(copy,size);
 		diff = clock() - start;
 		sumtime+=diff;
-		for(int i=0 ; i<size ; i++){				//Ã¿´ÎÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é£¬¸Ã²Ù×÷²»¼ÆÈëÅÅĞòÊ±¼ä 
+		for(int i=0 ; i<size ; i++){				//æ¯æ¬¡æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ï¼Œè¯¥æ“ä½œä¸è®¡å…¥æ’åºæ—¶é—´ 
 			copy[i]=a[i];		
 		}
 	}
-	printf("²åÈëÅÅĞòÓÃÊ±%.2f ms \n",(float)sumtime/CLOCKS_PER_SEC*1000);
-	sumtime=0;		//Ã¿ÖÖÅÅĞò½áÊøºó£¬³õÊ¼»¯¼ÆÊ±Æ÷ 
+	printf("æ’å…¥æ’åºç”¨æ—¶%.2f ms \n",(float)sumtime/CLOCKS_PER_SEC*1000);
+	sumtime=0;		//æ¯ç§æ’åºç»“æŸåï¼Œåˆå§‹åŒ–è®¡æ—¶å™¨ 
 	
 	
 	for(int i=0 ; i<sort_time ; i++){
@@ -574,24 +574,24 @@ void test2(void){
 		MergeSort(copy,begin,end,temp);
 		diff = clock() - start;
 		sumtime+=diff;
-		for(int i=0 ; i<size ; i++){				//Ã¿´ÎÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é£¬¸Ã²Ù×÷²»¼ÆÈëÅÅĞòÊ±¼ä 
+		for(int i=0 ; i<size ; i++){				//æ¯æ¬¡æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ï¼Œè¯¥æ“ä½œä¸è®¡å…¥æ’åºæ—¶é—´ 
 			copy[i]=a[i];		
 		}
 	}
-	printf("¹é²¢ÅÅĞòÓÃÊ±%.2f ms \n",(float)sumtime/CLOCKS_PER_SEC*1000);
-	sumtime=0;		//Ã¿ÖÖÅÅĞò½áÊøºó£¬³õÊ¼»¯¼ÆÊ±Æ÷ 
+	printf("å½’å¹¶æ’åºç”¨æ—¶%.2f ms \n",(float)sumtime/CLOCKS_PER_SEC*1000);
+	sumtime=0;		//æ¯ç§æ’åºç»“æŸåï¼Œåˆå§‹åŒ–è®¡æ—¶å™¨ 
 	
 	for(int i=0 ; i<sort_time ; i++){
 		start =clock();
 		QuickSort_Recursion(copy,begin,end);
 		diff = clock() - start;
 		sumtime+=diff;
-		for(int i=0 ; i<size ; i++){				//Ã¿´ÎÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é£¬¸Ã²Ù×÷²»¼ÆÈëÅÅĞòÊ±¼ä 
+		for(int i=0 ; i<size ; i++){				//æ¯æ¬¡æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ï¼Œè¯¥æ“ä½œä¸è®¡å…¥æ’åºæ—¶é—´ 
 			copy[i]=a[i];		
 		}
 	}
-	printf("¿ìËÙÅÅĞò£¨µİ¹é°æ£©ÓÃÊ±%.2f ms \n",(float)sumtime/CLOCKS_PER_SEC*1000);
-	sumtime=0;		//Ã¿ÖÖÅÅĞò½áÊøºó£¬³õÊ¼»¯¼ÆÊ±Æ÷ 
+	printf("å¿«é€Ÿæ’åºï¼ˆé€’å½’ç‰ˆï¼‰ç”¨æ—¶%.2f ms \n",(float)sumtime/CLOCKS_PER_SEC*1000);
+	sumtime=0;		//æ¯ç§æ’åºç»“æŸåï¼Œåˆå§‹åŒ–è®¡æ—¶å™¨ 
 
 
 	for(int i=0 ; i<sort_time ; i++){
@@ -599,24 +599,24 @@ void test2(void){
 		QuickSort(copy,size);
 		diff = clock() - start;
 		sumtime+=diff;
-		for(int i=0 ; i<size ; i++){				//Ã¿´ÎÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é£¬¸Ã²Ù×÷²»¼ÆÈëÅÅĞòÊ±¼ä 
+		for(int i=0 ; i<size ; i++){				//æ¯æ¬¡æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ï¼Œè¯¥æ“ä½œä¸è®¡å…¥æ’åºæ—¶é—´ 
 			copy[i]=a[i];		
 		}
 	}
-	printf("¿ìËÙÅÅĞò£¨·Çµİ¹é°æ£©ÓÃÊ±%.2f ms \n",(float)sumtime/CLOCKS_PER_SEC*1000);
-	sumtime=0;		//Ã¿ÖÖÅÅĞò½áÊøºó£¬³õÊ¼»¯¼ÆÊ±Æ÷ 
+	printf("å¿«é€Ÿæ’åºï¼ˆéé€’å½’ç‰ˆï¼‰ç”¨æ—¶%.2f ms \n",(float)sumtime/CLOCKS_PER_SEC*1000);
+	sumtime=0;		//æ¯ç§æ’åºç»“æŸåï¼Œåˆå§‹åŒ–è®¡æ—¶å™¨ 
 
 	for(int i=0 ; i<sort_time ; i++){
 		start =clock();
 		CountSort(copy,size,max);
 		diff = clock() - start;
 		sumtime+=diff;
-		for(int i=0 ; i<size ; i++){				//Ã¿´ÎÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é£¬¸Ã²Ù×÷²»¼ÆÈëÅÅĞòÊ±¼ä 
+		for(int i=0 ; i<size ; i++){				//æ¯æ¬¡æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ï¼Œè¯¥æ“ä½œä¸è®¡å…¥æ’åºæ—¶é—´ 
 			copy[i]=a[i];		
 		}
 	}
-	printf("¼ÆÊıÅÅĞòÓÃÊ±%.2f ms \n",(float)sumtime/CLOCKS_PER_SEC*1000);
-	sumtime=0;		//Ã¿ÖÖÅÅĞò½áÊøºó£¬³õÊ¼»¯¼ÆÊ±Æ÷ 
+	printf("è®¡æ•°æ’åºç”¨æ—¶%.2f ms \n",(float)sumtime/CLOCKS_PER_SEC*1000);
+	sumtime=0;		//æ¯ç§æ’åºç»“æŸåï¼Œåˆå§‹åŒ–è®¡æ—¶å™¨ 
 	
 	
 	for(int i=0 ; i<sort_time ; i++){
@@ -624,12 +624,12 @@ void test2(void){
 		RadixCountSort(copy,size);
 		diff = clock() - start;
 		sumtime+=diff;
-		for(int i=0 ; i<size; i++){				//Ã¿´ÎÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é£¬¸Ã²Ù×÷²»¼ÆÈëÅÅĞòÊ±¼ä 
+		for(int i=0 ; i<size; i++){				//æ¯æ¬¡æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ï¼Œè¯¥æ“ä½œä¸è®¡å…¥æ’åºæ—¶é—´ 
 			copy[i]=a[i];		
 		}
 	}
-	printf("»ùÊıÅÅĞòÓÃÊ±%.2f ms \n",(float)sumtime/CLOCKS_PER_SEC*1000);
-	sumtime=0;		//Ã¿ÖÖÅÅĞò½áÊøºó£¬³õÊ¼»¯¼ÆÊ±Æ÷ 
+	printf("åŸºæ•°æ’åºç”¨æ—¶%.2f ms \n",(float)sumtime/CLOCKS_PER_SEC*1000);
+	sumtime=0;		//æ¯ç§æ’åºç»“æŸåï¼Œåˆå§‹åŒ–è®¡æ—¶å™¨ 
 
 	
 	
@@ -638,55 +638,55 @@ void test2(void){
 
 
 
-//Éú³ÉÖ¸¶¨Êı¾İ £¨intÀàĞÍ£© 
+//ç”ŸæˆæŒ‡å®šæ•°æ® ï¼ˆintç±»å‹ï¼‰ 
 void create(void){
 	
 	int size,max,min;
 	
-	printf("¿ªÊ¼´´½¨Êı¾İÎÄ¼ş(Ä¬ÈÏÂ·¾¶Îª×ÀÃæ),ÇëÊäÈëÊı¾İ³¤¶È¼°Êı¾İ·¶Î§(×¢Òâ£¡´´½¨Êı¾İÎªint ÀàĞÍ)£º\n");
-	printf("Êı¾İ³¤¶È(ĞèÊäÈë´óÓÚ0µÄÊı)£º");
+	printf("å¼€å§‹åˆ›å»ºæ•°æ®æ–‡ä»¶(é»˜è®¤è·¯å¾„ä¸ºæ¡Œé¢),è¯·è¾“å…¥æ•°æ®é•¿åº¦åŠæ•°æ®èŒƒå›´(æ³¨æ„ï¼åˆ›å»ºæ•°æ®ä¸ºint ç±»å‹)ï¼š\n");
+	printf("æ•°æ®é•¿åº¦(éœ€è¾“å…¥å¤§äº0çš„æ•°)ï¼š");
 	scanf("%d",&size);
 	while(size<=0){
-		printf("ÄúÊäÈëµÄÖµ<=0,ÇëÖØĞÂÊäÈë>0µÄÊı£º"); 
+		printf("æ‚¨è¾“å…¥çš„å€¼<=0,è¯·é‡æ–°è¾“å…¥>0çš„æ•°ï¼š"); 
 		scanf("%d",&size);
 	}
 	
 
 	
-	printf("Êı¾İ×îĞ¡Öµ£º");
+	printf("æ•°æ®æœ€å°å€¼ï¼š");
 	scanf("%d",&min);
 	
-	printf("Êı¾İ×î´óÖµ£º"); 
+	printf("æ•°æ®æœ€å¤§å€¼ï¼š"); 
 	scanf("%d",&max);
 	
 	int *array;
 	array=(int*)malloc(size*sizeof(int));
-	//  Êı×é×î×ó¶ËÎª×îĞ¡Öµ£¬×îÓÒ¶ËÎª×î´óÖµ
-	//	Õû¸öÊı×éËùº¬ÔªËØ¾ùÔÚ[min,max]·¶Î§ÄÚ 
+	//  æ•°ç»„æœ€å·¦ç«¯ä¸ºæœ€å°å€¼ï¼Œæœ€å³ç«¯ä¸ºæœ€å¤§å€¼
+	//	æ•´ä¸ªæ•°ç»„æ‰€å«å…ƒç´ å‡åœ¨[min,max]èŒƒå›´å†… 
 	array[0]=min;		
 	array[size-1]=max;
 	for(int i=1 ; i<size-1 ; i++){
-		array[i]=rand()%(max-min+1)+min;		//Éú³É[min,max]·¶Î§ÄÚµÄÊı  
+		array[i]=rand()%(max-min+1)+min;		//ç”Ÿæˆ[min,max]èŒƒå›´å†…çš„æ•°  
 	}
 	
 	
 
-	FILE *fp=NULL;													//¸ù¾İ×ÀÃæ¾ßÌåÂ·¾¶½øĞĞĞŞ¸Ä 
-	fp=fopen("C:\\Users\\13415\\Desktop\\create_data.txt","w");		//Ä¬ÈÏÔÚ×ÀÃæ´´½¨ÃûÎªcreate_dataµÄtxtÀàĞÍÎÄ¼ş£¬´ÓÍ·Ğ´ÈëÊı¾İ 
+	FILE *fp=NULL;								//æ ¹æ®æ¡Œé¢å…·ä½“è·¯å¾„è¿›è¡Œä¿®æ”¹ 
+	fp=fopen("C:\\Users\\13415\\Desktop\\create_data.txt","w");		//é»˜è®¤åœ¨æ¡Œé¢åˆ›å»ºåä¸ºcreate_dataçš„txtç±»å‹æ–‡ä»¶ï¼Œä»å¤´å†™å…¥æ•°æ® 
 	for(int i=0 ; i<size ; i++){
 		fprintf(fp,"%d",array[i]);
-		fprintf(fp,",");			//ÒÔ¶ººÅ·Ö¸î¸÷Êı 
+		fprintf(fp,",");			//ä»¥é€—å·åˆ†å‰²å„æ•° 
 	}
 	
 	fclose(fp);
-	printf("ÒÑ³É¹¦ÔÚ×ÀÃæÄ¿Â¼ÏÂ´´½¨ÃûÎª\'create_data\'µÄtxtÀàĞÍÎÄ¼ş,Çë×¢Òâ²é¿´\n");
+	printf("å·²æˆåŠŸåœ¨æ¡Œé¢ç›®å½•ä¸‹åˆ›å»ºåä¸º\'create_data\'çš„txtç±»å‹æ–‡ä»¶,è¯·æ³¨æ„æŸ¥çœ‹\n");
 	return 0;
 
 
 
 } 
 
-//Êä³öµ¥´ÎÅÅĞò½á¹û 
+//è¾“å‡ºå•æ¬¡æ’åºç»“æœ 
 void sort(int *a,int size,int max){
 	
 	clock_t start,diff;
@@ -697,92 +697,92 @@ void sort(int *a,int size,int max){
 	begin=0,end=size-1;
 
 
-	for(int i=0 ; i<size ; i++){				//½«LÊı×é¸´ÖÆµ½copyÊı×éÖĞ 
+	for(int i=0 ; i<size ; i++){				//å°†aæ•°ç»„å¤åˆ¶åˆ°copyæ•°ç»„ä¸­ 
 		copy[i]=a[i];		
 	}
 		
 	start =clock();
 	insertSort(copy,size);
 	diff = clock() - start;
-	printf("²åÈëÅÅĞòÓÃÊ±%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
-	for(int i=0 ; i<size ; i++){				//Ã¿ÖÖÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é 
+	printf("æ’å…¥æ’åºç”¨æ—¶%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
+	for(int i=0 ; i<size ; i++){				//æ¯ç§æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ 
 		copy[i]=a[i];		
 	}
 	
 	start =clock();
 	MergeSort(copy,begin,end,temp);
 	diff = clock() - start;
-	printf("¹é²¢ÅÅĞòÓÃÊ±%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
-	for(int i=0 ; i<size ; i++){				//Ã¿ÖÖÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é 
+	printf("å½’å¹¶æ’åºç”¨æ—¶%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
+	for(int i=0 ; i<size ; i++){				//æ¯ç§æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ 
 		copy[i]=a[i];		
 	}	
 	
 	start =clock();
 	QuickSort_Recursion(copy,begin,end);
 	diff = clock() - start;
-	printf("¿ìËÙÅÅĞò£¨µİ¹é°æ£©ÓÃÊ±%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
-	for(int i=0 ; i<size ; i++){				//Ã¿ÖÖÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é 
+	printf("å¿«é€Ÿæ’åºï¼ˆé€’å½’ç‰ˆï¼‰ç”¨æ—¶%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
+	for(int i=0 ; i<size ; i++){				//æ¯ç§æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ 
 		copy[i]=a[i];		
 	}
 	
 	start =clock();
 	QuickSort(copy,size);
 	diff = clock() - start;
-	printf("¿ìËÙÅÅĞò£¨·Çµİ¹é°æ£©ÓÃÊ±%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
-	for(int i=0 ; i<size ; i++){				//Ã¿ÖÖÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é 
+	printf("å¿«é€Ÿæ’åºï¼ˆéé€’å½’ç‰ˆï¼‰ç”¨æ—¶%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
+	for(int i=0 ; i<size ; i++){				//æ¯ç§æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ 
 		copy[i]=a[i];		
 	}	
 	
 	start =clock();
 	CountSort(copy,size,max);
 	diff = clock() - start;
-	printf("¼ÆÊıÅÅĞòÓÃÊ±%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
-	for(int i=0 ; i<size ; i++){				//Ã¿ÖÖÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é 
+	printf("è®¡æ•°æ’åºç”¨æ—¶%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
+	for(int i=0 ; i<size ; i++){				//æ¯ç§æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ 
 		copy[i]=a[i];		
 	}	
 
 	start =clock();
 	RadixCountSort(copy,size);
 	diff = clock() - start;
-	printf("»ùÊıÅÅĞòÓÃÊ±%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
-	for(int i=0 ; i<size ; i++){				//Ã¿ÖÖÅÅĞòÍê³Éºó£¬ÖØĞÂ³õÊ¼»¯copyÊı×é 
+	printf("åŸºæ•°æ’åºç”¨æ—¶%.2f ms \n",(float)diff/CLOCKS_PER_SEC*1000);
+	for(int i=0 ; i<size ; i++){				//æ¯ç§æ’åºå®Œæˆåï¼Œé‡æ–°åˆå§‹åŒ–copyæ•°ç»„ 
 		copy[i]=a[i];		
 	}
 	
 }
 
-//¶ÁÈ¡Éú³ÉµÄÖ¸¶¨Êı¾İ²¢¶ÔÆä½øĞĞÅÅĞò 
+//è¯»å–ç”Ÿæˆçš„æŒ‡å®šæ•°æ®å¹¶å¯¹å…¶è¿›è¡Œæ’åº 
 void read_sort(void){
 	 
-		printf("¿ªÊ¼¶ÁÈ¡³ÌĞòÉú³ÉµÄÊı¾İ(×¢Òâ£¡¶ÁÈ¡Ç°ÇëÈ·±£ÒÑÓÃcreate³ÌĞòÔÚÄúµÄ×ÀÃæÉÏ´´½¨ÁËcreate_data.txtÎÄ¼ş)...\n");
+		printf("å¼€å§‹è¯»å–ç¨‹åºç”Ÿæˆçš„æ•°æ®(æ³¨æ„ï¼è¯»å–å‰è¯·ç¡®ä¿å·²ç”¨createç¨‹åºåœ¨æ‚¨çš„æ¡Œé¢ä¸Šåˆ›å»ºäº†create_data.txtæ–‡ä»¶)...\n");
 		
 		FILE *f=NULL;
-		f=fopen("C:\\Users\\13415\\Desktop\\create_data.txt","r");		//¸ù¾İ×ÀÃæ¾ßÌåÂ·¾¶½øĞĞĞŞ¸Ä 
+		f=fopen("C:\\Users\\13415\\Desktop\\create_data.txt","r");		//æ ¹æ®æ¡Œé¢å…·ä½“è·¯å¾„è¿›è¡Œä¿®æ”¹ 
 		
 		if(f==NULL){
 			
 			
 			int min,max;
-			int len=0;	//Êı×é³¤¶È 
+			int len=0;	//æ•°ç»„é•¿åº¦ 
 			int x;
-			printf("ÄúµÄ×ÀÃæ²»´æÔÚÎÄ¼şcreate_data.txt,ÏÂÃæ¿ªÊ¼´´½¨:\n");
+			printf("æ‚¨çš„æ¡Œé¢ä¸å­˜åœ¨æ–‡ä»¶create_data.txt,ä¸‹é¢å¼€å§‹åˆ›å»º:\n");
 			printf("-------------------------------------------------------\n");
 			create();
-			printf("´´½¨³É¹¦!\n");
+			printf("åˆ›å»ºæˆåŠŸ!\n");
 			f=fopen("C:\\Users\\13415\\Desktop\\create_data.txt","r");
-			while(fscanf(f,"%d,",&x)!=-1){		//È·¶¨Êı×é´óĞ¡ 
+			while(fscanf(f,"%d,",&x)!=-1){		//ç¡®å®šæ•°ç»„å¤§å° 
 				len++;
 			}
-			rewind(f);							//½«ÎÄ¼şÖ¸ÕëÖØĞÂÒÆµ½¿ªÍ· 
-			int a[len];							//´´½¨³¤¶ÈÎªlenµÄÊı×éa
+			rewind(f);							//å°†æ–‡ä»¶æŒ‡é’ˆé‡æ–°ç§»åˆ°å¼€å¤´ 
+			int a[len];							//åˆ›å»ºé•¿åº¦ä¸ºlençš„æ•°ç»„a
 			
-			for(int i=0 ; i<len ; i++){			//½«Êı¾İĞ´ÈëÊı×éa 
+			for(int i=0 ; i<len ; i++){			//å°†æ•°æ®å†™å…¥æ•°ç»„a 
 				fscanf(f,"%d,",&a[i]);
 			}
 			fclose(f);
 			min=a[0],max=a[len-1]; 
-			printf("Êı¾İ¶ÁÈ¡Íê±Ï£¬ÏÂÃæ¶ÔÆä½øĞĞÅÅĞò:\n");
-			printf("\nÅÅĞòÍê±Ï,ÓÃÊ±½á¹ûÈçÏÂ£º\n\n");
+			printf("æ•°æ®è¯»å–å®Œæ¯•ï¼Œä¸‹é¢å¯¹å…¶è¿›è¡Œæ’åº:\n");
+			printf("\næ’åºå®Œæ¯•,ç”¨æ—¶ç»“æœå¦‚ä¸‹ï¼š\n\n");
 			sort(a,len,max);
 			
 			 
@@ -791,7 +791,7 @@ void read_sort(void){
 			
 			int min,max,len,x;
 			len=0;
-			printf("Êı¾İ¶ÁÈ¡³É¹¦£¡\n");
+			printf("æ•°æ®è¯»å–æˆåŠŸï¼\n");
 			while(fscanf(f,"%d,",&x)!=-1){
 				len++;
 			}
@@ -803,8 +803,8 @@ void read_sort(void){
 			fclose(f);
 			min=a[0],max=a[len-1];
 			
-			printf("Êı¾İ¶ÁÈ¡Íê±Ï£¬ÏÂÃæ¶ÔÆä½øĞĞÅÅĞò:\n");
-			printf("\nÅÅĞòÍê±Ï,ÓÃÊ±½á¹ûÈçÏÂ£º\n\n");			
+			printf("æ•°æ®è¯»å–å®Œæ¯•ï¼Œä¸‹é¢å¯¹å…¶è¿›è¡Œæ’åº:\n");
+			printf("\næ’åºå®Œæ¯•,ç”¨æ—¶ç»“æœå¦‚ä¸‹ï¼š\n\n");			
 			sort(a,len,max);
 			
 		}
@@ -814,10 +814,10 @@ void read_sort(void){
 
 
 
-//´òÓ¡ÅÅĞòºóÊı×é 
+//æ‰“å°æ’åºåæ•°ç»„ 
 void print(int *a,int size){
  	
-	printf("ÅÅĞòºóµÄÊı×éÈçÏÂ:\n");
+	printf("æ’åºåçš„æ•°ç»„å¦‚ä¸‹:\n");
 	for(int i=0 ; i<size ;i++){
 		printf("%d ",a[i]);
 	} 
